@@ -5,7 +5,6 @@ import Features from "@/src/components/landing/Features";
 import Faq from "@/src/components/landing/Faq";
 import CTA from "@/src/components/landing/CTA";
 import Footer from "@/src/components/landing/Footer";
-import Link from "next/link";
 
 export default function LandingPage({ searchParams }) {
   const authRequired = searchParams?.auth === "required";

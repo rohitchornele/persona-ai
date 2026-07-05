@@ -6,6 +6,7 @@ import { NAV_LINKS } from "./constant.js"
 import NavLinks from "./navigation/NavLinks.jsx"
 import NavLogo from "./navigation/NavLogo.jsx"
 import NavbarActions from "./navigation/NavbarActions.jsx"
+import MobileMenu from "./MobileMenu.jsx"
 
 
 export default function Navbar() {

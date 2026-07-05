@@ -1,5 +1,5 @@
 import ThemeToggle from "@/src/components/theme/ThemeToggle";
-import LaunchChatButton from "../buttons/LaunchChatButton";
+import LaunchChatButton from "./buttons/LaunchChatButton";
 
 export default function MobileMenu({
   links,

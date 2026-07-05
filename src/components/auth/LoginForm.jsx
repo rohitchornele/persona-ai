@@ -49,7 +49,7 @@ export default function LoginForm() {
         <PasswordInput
           register={register("password")}
           error={errors.password}
-          forgotPasswordHref="/forgot-password"
+          // forgotPasswordHref="/forgot-password"
         />
 
         <button
