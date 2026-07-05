@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+
+@theme {
+  --font-display: var(--font-sora), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+
+  --color-backdrop: var(--backdrop);
+  --color-panel: var(--panel);
+  --color-panelAlt: var(--panel-alt);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-jade: var(--jade);
+  --color-jadeDeep: var(--jade-deep);
+  --color-coral: var(--coral);
+  --color-amber: var(--amber);
+  --color-indigo: var(--indigo);
+
+  --shadow-app: 0 30px 80px -20px rgb(0 0 0 / 0.45);
+
+  --radius-bubbleTL: 4px;
+  --radius-bubbleTR: 18px;
+
+  --animate-typingDot: typingDot 1.2s ease-in-out infinite;
+  --animate-popIn: popIn 0.18s ease-out;
+}
+
+@keyframes typingDot {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.92) translateY(4px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Class-based dark mode (v4 defaults to the `prefers-color-scheme` media
+   query, so this opts back into toggling via `.dark` on <html>, same as
+   ThemeProvider.jsx already does). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Light theme -- sage-grey backdrop, jade + coral accent thread */
+  --backdrop: #dee3df;
+  --panel: #ffffff;
+  --panel-alt: #f0f2ef;
+  --line: #dbdfda;
+  --ink: #16211f;
+  --muted: #5b6b67;
+  --jade: #159c7d;
+  --jade-deep: #0b6350;
+  --coral: #e14b36;
+  --amber: #c9862b;
+  --indigo: #5b62d6;
+}
+
+.dark {
+  /* Dark theme */
+  --backdrop: #10171a;
+  --panel: #171f23;
+  --panel-alt: #1e282c;
+  --line: #2a363b;
+  --ink: #ecefee;
+  --muted: #8b99a0;
+  --jade: #21bf9a;
+  --jade-deep: #0e4a3c;
+  --coral: #ff6b57;
+  --amber: #e8a33d;
+  --indigo: #7c8cf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--backdrop);
+  color: var(--ink);
+}
+
+/* slim, theme-aware scrollbars */
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.thin-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--line);
+  border-radius: 999px;
+}
+.thin-scroll:hover::-webkit-scrollbar-thumb {
+  background-color: color-mix(in oklab, var(--muted) 60%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
